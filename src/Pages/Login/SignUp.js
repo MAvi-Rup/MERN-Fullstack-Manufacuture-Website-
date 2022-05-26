@@ -1,11 +1,12 @@
 import React from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const SignUp = () => {
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, gUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [
         createUserWithEmailAndPassword,
         user,
@@ -14,7 +15,22 @@ const SignUp = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     let handleError;
+    if (loading || googleLoading || updating) {
+        return <Loading></Loading>
+    }
+    if (error || googleError || updateError) {
+        handleError = <p className='text-red-500'><small>{error?.message || googleError?.message || updateError?.message}</small></p>
+    }
+    if(user || gUser){
+        navigate(from, { replace: true });
+        
+    }
+
+
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
@@ -26,7 +42,7 @@ const SignUp = () => {
                 <div class="hero-content flex-col lg:flex-row-reverse">
                     <div class="text-center lg:text-left md:w-1/2">
                         <h1 class="text-5xl font-bold">Signup now!</h1>
-                        <p class="py-6">Login our website to place an order. And if you like our design and pattern please subscribe our newsletter to get the latest update price and design.</p>
+                        <p class="py-6">If you don't have an account signup first for place an order to our website. And if you like our design and pattern please subscribe our newsletter to get the latest update price and design.</p>
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)} class="card flex-shrink-0 md:w-1/2 max-w-sm shadow-2xl bg-base-100">
                         <div class="card-body">
@@ -34,7 +50,7 @@ const SignUp = () => {
                                 <label class="label">
                                     <span class="label-text">Name</span>
                                 </label>
-                                <input
+                                <input autoComplete='off'
                                     type="text"
                                     placeholder="Your Name"
                                     className="input input-bordered w-full max-w-xs"
@@ -53,7 +69,7 @@ const SignUp = () => {
                                 <label class="label">
                                     <span class="label-text">Email</span>
                                 </label>
-                                <input
+                                <input autoComplete='off'
                                 type="email"
                                 placeholder="Your Email"
                                 className="input input-bordered w-full max-w-xs"
@@ -77,7 +93,7 @@ const SignUp = () => {
                                 <label class="label">
                                     <span class="label-text">Password</span>
                                 </label>
-                                <input
+                                <input autoComplete='off'
                                 type="password"
                                 placeholder="Password"
                                 className="input input-bordered w-full max-w-xs"
@@ -100,7 +116,7 @@ const SignUp = () => {
                             </div>
                             {handleError}
                             <div class="form-control mt-6">
-                                <button class="btn btn-accent text-white">Login</button>
+                                <button class="btn btn-accent text-white">Signup</button>
                             </div>
                             <p className='text-danger italic'>Have an Account? <Link className='text-primary' to="/login">Please login</Link> </p>
                             <div className="divider">OR</div>

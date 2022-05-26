@@ -9,17 +9,27 @@ import RequireAuth from './Pages/Protected/RequireAuth';
 import Login from './Pages/Login/Login';
 import { ToastContainer } from 'react-toastify';
 import SignUp from './Pages/Login/SignUp';
+import Purchase from './Pages/Purchase/Purchase';
+import NotFound from './Pages/Shared/NotFound';
+import Contact from './Pages/Contact/Contact';
+import 'react-toastify/dist/ReactToastify.css';
+import AddReview from './Pages/Home/AddReview';
+
 
 function App() {
   return (
-    <div className='max-w-7xl mx-auto px-12'>
+    <div className='max-w-7xl mx-auto px-12 sm:w-screen'>
       <Navebar></Navebar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/blog' element={<Bolgs></Bolgs>}></Route>
         <Route path='/about' element={<About></About>}></Route>
+        <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<SignUp></SignUp>}></Route>
+        <Route path='/purchase/:id' element={<RequireAuth><Purchase></Purchase></RequireAuth>}></Route>
+        <Route path='/addreview' element={<RequireAuth><AddReview></AddReview></RequireAuth>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer/>
       

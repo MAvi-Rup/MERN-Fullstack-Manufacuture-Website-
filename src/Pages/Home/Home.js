@@ -4,6 +4,7 @@ import Baneer from './Baneer';
 import Business from './Business';
 import Footer from './Footer';
 import Hero from './Hero';
+import Review from './Review';
 import Tools from './Tools';
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
             <Tools></Tools>
             <Hero></Hero>
             <Business></Business>
+            <Review></Review>
             <Footer></Footer>
         </div>
     );
