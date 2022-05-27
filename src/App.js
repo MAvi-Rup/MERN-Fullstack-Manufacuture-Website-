@@ -14,6 +14,10 @@ import NotFound from './Pages/Shared/NotFound';
 import Contact from './Pages/Contact/Contact';
 import 'react-toastify/dist/ReactToastify.css';
 import AddReview from './Pages/Home/AddReview';
+import Review from './Pages/Home/Review';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyOrder from './Pages/Dashboard/MyOrder';
+import Users from './Pages/Dashboard/Users';
 
 
 function App() {
@@ -26,9 +30,18 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/review' element={<Review></Review>}></Route>
+        <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
+          <Route path="myorder" element={<MyOrder></MyOrder>}></Route>
+          <Route path="users" element={<Users></Users>}></Route>
+          <Route path="addreview" element={<AddReview></AddReview>}></Route>
+          {/* <Route path="myorder" element={<MyHistory></MyHistory>}></Route>
+          <Route path="users" element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
+          <Route path="addproduct" element={<RequireAdmin><AddDoctor></AddDoctor></RequireAdmin>}></Route> */}
+        </Route>
         <Route path='/register' element={<SignUp></SignUp>}></Route>
         <Route path='/purchase/:id' element={<RequireAuth><Purchase></Purchase></RequireAuth>}></Route>
-        <Route path='/addreview' element={<RequireAuth><AddReview></AddReview></RequireAuth>}></Route>
+        {/* <Route path='/addreview' element={<RequireAuth><AddReview></AddReview></RequireAuth>}></Route> */}
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer/>

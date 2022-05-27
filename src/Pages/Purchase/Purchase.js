@@ -11,14 +11,17 @@ const Purchase = () => {
     const { id } = useParams()
     const [user, loading, error] = useAuthState(auth);
     const [tool, setTool] = useState({})
+    
     useEffect(() => {
         const url = `http://localhost:5000/tools/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setTool(data))
     }, [id])
-    const { register, formState: { errors }, handleSubmit } = useForm();
     const { minimum, stock,name,price } = tool
+
+    const { register, formState: { errors }, handleSubmit } = useForm();
+
 
     const onSubmit = (data,e) => {
         const totalPrice = parseInt(data.quantity)*price
@@ -46,9 +49,6 @@ const Purchase = () => {
 
     }
 
-    if (loading) {
-        return <Loading></Loading>
-    }
 
     return (
         <div>
@@ -69,8 +69,9 @@ const Purchase = () => {
             </div>
             <div className='my-6'>
                 <h3 className="font-bold text-center text-lg text-primary">Purchase</h3>
-                <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
-                    <input type="number" autoComplete='off' name='quantity'placeholder='Quantity' {...register("quantity", { min: minimum, max: stock })} className="input input-bordered w-full max-w-xs" />
+                <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-1 gap-3 justify-items-center mt-2 form-control'>
+                    <label className='label text-left'>Quantity</label>
+                    <input type="number" autoComplete='off' name='quantity'placeholder='3000' {...register("quantity", { min: minimum, max: stock })} className="input input-bordered w-full max-w-xs" />
                     <p className='text-red-700 text-xl font-bold'>
                      {errors.quantity && `Error: Minimum order quantity is ${minimum} & maximum quantity is ${stock}`}
                     </p>
