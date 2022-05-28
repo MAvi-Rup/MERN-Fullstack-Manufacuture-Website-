@@ -27,7 +27,7 @@ const SignUp = () => {
     if (error || googleError || updateError) {
         handleError = <p className='text-red-500'><small>{error?.message || googleError?.message || updateError?.message}</small></p>
     }
-    if(user || gUser){
+    if(token){
         navigate(from, { replace: true });
         
     }

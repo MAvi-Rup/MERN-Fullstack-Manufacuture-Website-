@@ -1,10 +1,15 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import useAdmin from '../../hooks/useAdmin';
 
-const Tool = ({tool}) => {
+const Tool = ({ tool }) => {
     const navigate = useNavigate()
-    const {_id,name,price,desc,stock,minimum,img} = tool;
-    const navigateProduct = id =>{
+    const [user] = useAuthState(auth)
+    const [admin] = useAdmin(user)
+    const { _id, name, price, desc, stock, minimum, img } = tool;
+    const navigateProduct = id => {
         navigate(`/purchase/${id}`)
     }
     return (
@@ -20,7 +25,10 @@ const Tool = ({tool}) => {
                     <h2>Min-Order Quantity: {minimum} /p</h2>
                     <h2>Available Quantity: {stock} /p</h2>
                     <div class="card-actions">
-                        <button onClick={()=>{navigateProduct(_id)}} class="btn btn-primary">Buy Now</button>
+                        {
+                            admin ? <button disabled onClick={() => { navigateProduct(_id) }} class="btn btn-primary">Buy Now</button> : <button onClick={() => { navigateProduct(_id) }} class="btn btn-primary">Buy Now</button>
+
+                        }
                     </div>
                 </div>
             </div>

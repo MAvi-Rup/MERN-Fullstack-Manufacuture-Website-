@@ -71,7 +71,7 @@ const Purchase = () => {
                 <h3 className="font-bold text-center text-lg text-primary">Purchase</h3>
                 <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-1 gap-3 justify-items-center mt-2 form-control'>
                     <label className='label text-left'>Quantity</label>
-                    <input type="number" autoComplete='off' name='quantity'placeholder='Min Qnt-3000' {...register("quantity", { min: minimum, max: stock })} className="input input-bordered w-full max-w-xs" />
+                    <input type="number" autoComplete='off' name='quantity'placeholder={`Min Qnt ${minimum}`} {...register("quantity", { min: minimum, max: stock })} className="input input-bordered w-full max-w-xs" />
                     <p className='text-red-700 text-xl font-bold'>
                      {errors.quantity && `Error: Minimum order quantity is ${minimum} & maximum quantity is ${stock}`}
                     </p>
