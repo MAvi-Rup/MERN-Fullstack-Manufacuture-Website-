@@ -1,13 +1,16 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     const [user] = useAuthState(auth);
-    console.log(user.email)
+    // console.log(user.email)
     const navigate = useNavigate()
     useEffect(() => {
         if (user) {
@@ -31,14 +34,57 @@ const MyOrder = () => {
                     setOrders(data);
                 });
         }
-    }, [user])
+    }, [user,orders])
 
-    const deleteOrder = () => {
+    const [confirmOrders, setConfirm]= useState(false)
+    useEffect(()=>{
 
+    },[confirmOrders])
+
+
+
+
+    const deleteOrder = (id) => {
+        const proceed = window.confirm('Are you sure?');
+        if (proceed) {
+            const url = `https://thawing-cove-92314.herokuapp.com/order/${id}`
+            fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    const remaining = orders.filter(order => order._id !== id);
+                    setOrders(remaining);
+                    toast("Order Deleted")
+                })
+        }
     }
 
-    const confirmOrder = () => {
-
+    const confirmOrder = (order) => {
+        const orderObj = {
+            user:order.email,
+            name: order.product,
+            price: order.total,
+            address: order.address,
+            phone: order.phone
+        }
+        fetch(`https://thawing-cove-92314.herokuapp.com/confirm`, {
+            method: 'POST',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orderObj)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(orderObj)
+                toast('Order Confirm')
+                setConfirm(true)
+            })
     }
 
     return (
@@ -70,11 +116,11 @@ const MyOrder = () => {
                                 {/* <td>{order.quantity}</td> */}
                                 <td>{order.total}</td>
                                 <td>{order.address}</td>
-                                <td><button onClick={()=>{confirmOrder(order._id)}} className="btn btn-xs">Confirm Order</button></td>
-                                <td><button onClick={()=>{deleteOrder(order._id)}}  className="btn btn-xs">Remove User</button></td>
+                                <td>{confirmOrders == false ? <button onClick={() => { confirmOrder(order) }} className="btn btn-xs">Confirm Order</button>:<button onClick={() => { confirmOrder(order) }} className="btn btn-xs" disabled>Confirm Order</button>}</td>
+                                <td>{confirmOrders == false ? <button onClick={() => { deleteOrder(order._id) }} className="btn btn-xs">Delete Order</button>:<button disabled onClick={() => { deleteOrder(order._id) }} className="btn btn-xs">Delete Order</button>}</td>
                             </tr>)
                         }
-
+                        
 
                     </tbody>
                 </table>

@@ -22,6 +22,7 @@ import RequireAdmin from './Pages/Protected/RequireAdmin';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import MyPortfolio from './Pages/MyPotfolio/MyPortfolio';
+import ManageProducts from './Pages/Dashboard/ManageProducts';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path="users" element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
           <Route path="addproduct" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
+          <Route path="manageproduct" element={<RequireAdmin><ManageProducts></ManageProducts></RequireAdmin>}></Route>
           <Route path="addreview" element={<AddReview></AddReview>}></Route>
           {/* <Route path="myorder" element={<MyHistory></MyHistory>}></Route>
           <Route path="users" element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
