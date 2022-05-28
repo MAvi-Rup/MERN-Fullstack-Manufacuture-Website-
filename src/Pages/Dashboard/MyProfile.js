@@ -11,7 +11,6 @@ const MyProfile = () => {
     // const [admin]= useAdmin(user)
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = (data, e) => {
-        console.log(data)
         const updateProfile = {
             name:data.name,
             number: data.number,
@@ -34,7 +33,7 @@ const MyProfile = () => {
     return (
         <div>
             <div>
-                <h1 className='text-2xl text-center text-primary'>Add New Product</h1>
+                <h1 className='text-2xl text-center text-primary'>Update Your Profile</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="form-control w-full max-w-xs">
                     <div>
                         <label className="label">

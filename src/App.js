@@ -21,6 +21,7 @@ import Users from './Pages/Dashboard/Users';
 import RequireAdmin from './Pages/Protected/RequireAdmin';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import MyProfile from './Pages/Dashboard/MyProfile';
+import MyPortfolio from './Pages/MyPotfolio/MyPortfolio';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/review' element={<Review></Review>}></Route>
         <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
           <Route path="myorder" element={<MyOrder></MyOrder>}></Route>
