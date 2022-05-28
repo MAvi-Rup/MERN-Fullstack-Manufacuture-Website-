@@ -15,7 +15,7 @@ const AddReview = () => {
             review:data.review,
             ratings:data.rating
         }
-        fetch('http://localhost:5000/review', {
+        fetch('https://thawing-cove-92314.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -35,7 +35,7 @@ const AddReview = () => {
             <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
                 <input type="text" name="name" disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
                 <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
-                <select class="select select-secondary w-full max-w-xs" {...register("rating")}>
+                <select className="select select-secondary w-full max-w-xs" {...register("rating")}>
                     <option disabled selected>Ratings?</option>
                     <option value='1'>1</option>
                     <option value='2'>2</option>

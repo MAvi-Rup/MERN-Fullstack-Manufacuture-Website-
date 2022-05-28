@@ -14,19 +14,19 @@ const Tool = ({ tool }) => {
     }
     return (
         <div>
-            <div class="card bg-base-100 shadow-xl">
-                <figure class="md:px-10 md:pt-10 card-side">
-                    <img src={img} alt="Shoes" class="rounded-lg shadow-2xl" />
+            <div className="card bg-base-100 shadow-xl">
+                <figure className="md:px-10 md:pt-10 card-side">
+                    <img src={img} alt="Shoes" className="rounded-lg shadow-2xl" />
                 </figure>
-                <div class="card-body items-center text-center">
-                    <h2 class="card-title">{name}</h2>
+                <div className="card-body items-center text-center">
+                    <h2 className="card-title">{name}</h2>
                     <p>{desc}</p>
-                    <h2 class="card-title">Price: {price} BDT</h2>
+                    <h2 className="card-title">Price: {price} BDT</h2>
                     <h2>Min-Order Quantity: {minimum} /p</h2>
                     <h2>Available Quantity: {stock} /p</h2>
-                    <div class="card-actions">
+                    <div className="card-actions">
                         {
-                            admin ? <button disabled onClick={() => { navigateProduct(_id) }} class="btn btn-primary">Buy Now</button> : <button onClick={() => { navigateProduct(_id) }} class="btn btn-primary">Buy Now</button>
+                            admin ? <button disabled onClick={() => { navigateProduct(_id) }} className="btn btn-primary">Buy Now</button> : <button onClick={() => { navigateProduct(_id) }} className="btn btn-primary">Buy Now</button>
 
                         }
                     </div>

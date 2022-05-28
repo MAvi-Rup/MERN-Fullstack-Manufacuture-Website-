@@ -5,7 +5,7 @@ const UserTable = ({user,refetch}) => {
     const { email,role} = user;
    
     const setAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://thawing-cove-92314.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -28,8 +28,8 @@ const UserTable = ({user,refetch}) => {
         
             <tr>
                 <td>{email}</td>
-                <td>{role !== 'admin' && <button onClick={setAdmin} class="btn btn-xs">Make Admin</button>}</td>
-                <td><button class="btn btn-xs">Remove User</button></td>
+                <td>{role !== 'admin' && <button onClick={setAdmin} className="btn btn-xs">Make Admin</button>}</td>
+                <td><button className="btn btn-xs">Remove User</button></td>
             </tr>
 
         

@@ -60,32 +60,32 @@ const Login = () => {
 
     return (
         <div>
-            <div class="hero min-h-screen bg-base-200">
-                <div class="hero-content flex-col lg:flex-row-reverse">
-                    <div class="text-center lg:text-left md:w-1/2">
-                        <h1 class="text-5xl font-bold">Login now!</h1>
-                        <p class="py-6">Login our website to place an order. And if you like our design and pattern please subscribe our newsletter to get the latest update price and design.</p>
+            <div className="hero min-h-screen bg-base-200">
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <div className="text-center lg:text-left md:w-1/2">
+                        <h1 className="text-5xl font-bold">Login now!</h1>
+                        <p className="py-6">Login our website to place an order. And if you like our design and pattern please subscribe our newsletter to get the latest update price and design.</p>
                     </div>
-                    <form onSubmit={formSubmit} class="card flex-shrink-0 md:w-1/2 max-w-sm shadow-2xl bg-base-100">
-                        <div class="card-body">
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Email</span>
+                    <form onSubmit={formSubmit} className="card flex-shrink-0 md:w-1/2 max-w-sm shadow-2xl bg-base-100">
+                        <div className="card-body">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" required ref={emailRef} placeholder="Email" class="input input-bordered" />
+                                <input type="email" required ref={emailRef} placeholder="Email" className="input input-bordered" />
                             </div>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Password</span>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" ref={passRef} required placeholder="Password" class="input input-bordered" />
-                                <label class="label">
-                                    <button onClick={resetPassword} class="label-text-alt link link-hover">Forgot password?</button>
+                                <input type="password" ref={passRef} required placeholder="Password" className="input input-bordered" />
+                                <label className="label">
+                                    <button onClick={resetPassword} className="label-text-alt link link-hover">Forgot password?</button>
                                 </label>
                             </div>
                             {handleError}
-                            <div class="form-control mt-6">
-                                <button class="btn btn-accent text-white">Login</button>
+                            <div className="form-control mt-6">
+                                <button className="btn btn-accent text-white">Login</button>
                             </div>
                             <p className='text-danger italic'>New to Ceramic Tiles? <Link to="/register" className='text-primary no-underline' onClick={navigateRegister}>Please Register</Link> </p>
                             <div className="divider">OR</div>

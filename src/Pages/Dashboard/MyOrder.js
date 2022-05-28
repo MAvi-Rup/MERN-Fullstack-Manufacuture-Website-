@@ -11,7 +11,7 @@ const MyOrder = () => {
     const navigate = useNavigate()
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?email=${user.email}`, {
+            fetch(`https://thawing-cove-92314.herokuapp.com/order?email=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -44,8 +44,8 @@ const MyOrder = () => {
     return (
         <div>
             <h2>My Orders: {orders.length}</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
@@ -70,8 +70,8 @@ const MyOrder = () => {
                                 {/* <td>{order.quantity}</td> */}
                                 <td>{order.total}</td>
                                 <td>{order.address}</td>
-                                <td><button onClick={()=>{confirmOrder(order._id)}} class="btn btn-xs">Confirm Order</button></td>
-                                <td><button onClick={()=>{deleteOrder(order._id)}}  class="btn btn-xs">Remove User</button></td>
+                                <td><button onClick={()=>{confirmOrder(order._id)}} className="btn btn-xs">Confirm Order</button></td>
+                                <td><button onClick={()=>{deleteOrder(order._id)}}  className="btn btn-xs">Remove User</button></td>
                             </tr>)
                         }
 

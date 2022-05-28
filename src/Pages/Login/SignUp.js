@@ -40,17 +40,17 @@ const SignUp = () => {
     }
     return (
         <div>
-            <div class="hero min-h-screen bg-base-200">
-                <div class="hero-content flex-col lg:flex-row-reverse">
-                    <div class="text-center lg:text-left md:w-1/2">
-                        <h1 class="text-5xl font-bold">Signup now!</h1>
-                        <p class="py-6">If you don't have an account signup first for place an order to our website. And if you like our design and pattern please subscribe our newsletter to get the latest update price and design.</p>
+            <div className="hero min-h-screen bg-base-200">
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <div className="text-center lg:text-left md:w-1/2">
+                        <h1 className="text-5xl font-bold">Signup now!</h1>
+                        <p className="py-6">If you don't have an account signup first for place an order to our website. And if you like our design and pattern please subscribe our newsletter to get the latest update price and design.</p>
                     </div>
-                    <form onSubmit={handleSubmit(onSubmit)} class="card flex-shrink-0 md:w-1/2 max-w-sm shadow-2xl bg-base-100">
-                        <div class="card-body">
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Name</span>
+                    <form onSubmit={handleSubmit(onSubmit)} className="card flex-shrink-0 md:w-1/2 max-w-sm shadow-2xl bg-base-100">
+                        <div className="card-body">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
                                 </label>
                                 <input autoComplete='off'
                                     type="text"
@@ -67,9 +67,9 @@ const SignUp = () => {
                                     {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
                                 </label>
                             </div>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Email</span>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
                                 </label>
                                 <input autoComplete='off'
                                 type="email"
@@ -91,9 +91,9 @@ const SignUp = () => {
                                 {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                             </label>
                             </div>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Password</span>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
                                 </label>
                                 <input autoComplete='off'
                                 type="password"
@@ -117,8 +117,8 @@ const SignUp = () => {
                                 
                             </div>
                             {handleError}
-                            <div class="form-control mt-6">
-                                <button class="btn btn-accent text-white">Signup</button>
+                            <div className="form-control mt-6">
+                                <button className="btn btn-accent text-white">Signup</button>
                             </div>
                             <p className='text-danger italic'>Have an Account? <Link className='text-primary' to="/login">Please login</Link> </p>
                             <div className="divider">OR</div>

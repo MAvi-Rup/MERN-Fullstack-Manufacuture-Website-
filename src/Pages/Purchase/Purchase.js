@@ -13,7 +13,7 @@ const Purchase = () => {
     const [tool, setTool] = useState({})
     
     useEffect(() => {
-        const url = `http://localhost:5000/tools/${id}`
+        const url = `https://thawing-cove-92314.herokuapp.com/tools/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setTool(data))
@@ -34,7 +34,7 @@ const Purchase = () => {
             phone: data.number,
             address: data.address
         }
-        fetch('http://localhost:5000/order', {
+        fetch('https://thawing-cove-92314.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -52,17 +52,17 @@ const Purchase = () => {
 
     return (
         <div>
-            <div class="hero min-h-screen bg-base-200">
-                <div class="hero-content flex-col lg:flex-row-reverse">
-                    <div class="text-center lg:text-left md:w-1/2">
-                        <h1 class="text-3xl font-bold">{tool.name}</h1>
-                        <p class="py-3">{tool.desc}</p>
-                        <h1 class="text-2xl font-semibold">Price: <span className='text-primary'>{tool.price} BDT</span></h1>
-                        <h1 class="text-2xl font-semibold">Minimum Order Quantity: <span className='text-primary'>{tool.minimum}</span></h1>
-                        <h1 class="text-2xl font-semibold">Stock Available: <span className='text-primary'>{tool.stock}</span></h1>
+            <div className="hero min-h-screen bg-base-200">
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <div className="text-center lg:text-left md:w-1/2">
+                        <h1 className="text-3xl font-bold">{tool.name}</h1>
+                        <p className="py-3">{tool.desc}</p>
+                        <h1 className="text-2xl font-semibold">Price: <span className='text-primary'>{tool.price} BDT</span></h1>
+                        <h1 className="text-2xl font-semibold">Minimum Order Quantity: <span className='text-primary'>{tool.minimum}</span></h1>
+                        <h1 className="text-2xl font-semibold">Stock Available: <span className='text-primary'>{tool.stock}</span></h1>
                     </div>
-                    <div class="card flex-shrink-0 md:w-1/2 max-w-sm shadow-2xl bg-base-100">
-                        <img src={tool.img} class="rounded-lg shadow-2xl" />
+                    <div className="card flex-shrink-0 md:w-1/2 max-w-sm shadow-2xl bg-base-100">
+                        <img src={tool.img} className="rounded-lg shadow-2xl" />
                     </div>
                 </div>
 
