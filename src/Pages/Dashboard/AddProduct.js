@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 const AddProduct = (data,e) => {
-    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const { register, formState: { errors }, handleSubmit} = useForm();
     const onSubmit = (data, e) => {
         console.log(data)
         const tools = {

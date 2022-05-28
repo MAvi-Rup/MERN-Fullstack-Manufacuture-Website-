@@ -42,7 +42,7 @@ const Navebar = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost normal-case text-xl">Ceramic Tiles</Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-xl text-primary">Ceramic Tiles</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">

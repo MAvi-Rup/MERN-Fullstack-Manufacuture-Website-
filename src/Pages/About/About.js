@@ -2,8 +2,8 @@ import React from 'react';
 
 const About = () => {
     return (
-        <div>
-            <h1 className="text-2xl text-center text-primary text-semibold">Know More About Us..</h1>
+        <div className='py-9'>
+            <h1 className="text-4xl text-center text-primary text-semibold">Know More About Us..</h1>
             <div class="hero min-h-screen bg-base-200">
                 <div class="hero-content flex-col lg:flex-row">
                     <img src="https://i.ibb.co/Pr1jLgX/designer-tiles-for-living-room.jpg" class="max-w-sm rounded-lg shadow-2xl" />
