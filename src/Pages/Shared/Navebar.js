@@ -14,13 +14,12 @@ const Navebar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/blog">Blog</Link></li>
         <li><Link to="/review">Review</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
         <li><Link to="/about">About</Link></li>
         {/* <li><Link to="/addreview">Add Review</Link></li> */}
 
         {
             user && <>
-                
+
                 <li><Link to="/dashboard">{user?.displayName} Dashboard</Link></li>
 
             </>
@@ -28,6 +27,7 @@ const Navebar = () => {
         {
             <li>{user ? <button className="btn btn-ghost text-slate-600 font-medium" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
         }
+
 
     </>
     return (
