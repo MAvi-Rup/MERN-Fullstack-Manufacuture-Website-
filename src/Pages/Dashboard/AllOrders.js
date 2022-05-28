@@ -27,18 +27,20 @@ const AllOrders = () => {
                             <th>Number</th>
                             <th>Total Price</th>
                             <th>Address</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             alloders.map((order, index) => <tr>
                                 <th>{index + 1}</th>
-                                <td>{order.email}</td>
-                                <td>{order.product}</td>
+                                <td>{order.user}</td>
+                                <td>{order.name}</td>
                                 <td>{order.phone}</td>
                                 {/* <td>{order.quantity}</td> */}
-                                <td>{order.total}</td>
+                                <td>{order.price}</td>
                                 <td>{order.address}</td>
+                                <td className='text-green-700 text-xl'>Paid</td>
                             </tr>)
                         }
                         
