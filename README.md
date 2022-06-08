@@ -12,6 +12,7 @@ Key Feature of this Projects are:
 - Email Verfication.
 - Password Reset.
 - Admin Can Remove a User and Make an admin.
+# Admin Credential - Name: admin@gmail.com Pass: 123456
 
 
 
