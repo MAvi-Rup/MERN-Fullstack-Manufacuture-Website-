@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const AllOrders = () => {
     const [alloders, setOrders] = useState([])
     useEffect(() => {
-        fetch('https://thawing-cove-92314.herokuapp.com/confirm',
+        fetch('https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/confirm',
             {
                 method: 'GET',
                 headers: {

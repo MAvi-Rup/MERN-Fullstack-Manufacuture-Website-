@@ -13,7 +13,7 @@ const Purchase = () => {
     const [tool, setTool] = useState({})
     
     useEffect(() => {
-        const url = `https://thawing-cove-92314.herokuapp.com/tools/${id}`
+        const url = `https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/tools/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setTool(data))
@@ -34,7 +34,7 @@ const Purchase = () => {
             phone: data.number,
             address: data.address
         }
-        fetch('https://thawing-cove-92314.herokuapp.com/order', {
+        fetch('https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

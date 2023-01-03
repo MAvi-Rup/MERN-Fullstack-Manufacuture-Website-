@@ -15,7 +15,7 @@ const AddProduct = (data,e) => {
             stock: data.stock,
             img: data.image
         }
-        fetch('https://thawing-cove-92314.herokuapp.com/tools', {
+        fetch('https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/tools', {
             method: 'POST',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,

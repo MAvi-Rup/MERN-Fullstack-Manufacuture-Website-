@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 import ReviewCard from './ReviewCard';
 
 const Review = () => {
-    const { data: reviews, isLoading, refetch } = useQuery('reviews', () => fetch(`https://thawing-cove-92314.herokuapp.com/review`)
+    const { data: reviews, isLoading, refetch } = useQuery('reviews', () => fetch(`https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/review`)
         .then(res => res.json()))
         if(isLoading){
             return <Loading></Loading>

@@ -9,7 +9,7 @@ const DeleteTool = ({tool,setTools,tools}) => {
     const deletProduct = (id) => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `https://thawing-cove-92314.herokuapp.com/tools/${id}`
+            const url = `https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/tools/${id}`
             fetch(url, {
                 method: 'DELETE',
                 headers: {

@@ -15,7 +15,7 @@ const AddReview = () => {
             review:data.review,
             ratings:data.rating
         }
-        fetch('https://thawing-cove-92314.herokuapp.com/review', {
+        fetch('https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

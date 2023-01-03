@@ -14,7 +14,7 @@ const MyOrder = () => {
     const navigate = useNavigate()
     useEffect(() => {
         if (user) {
-            fetch(`https://thawing-cove-92314.herokuapp.com/order?email=${user.email}`, {
+            fetch(`https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/order?email=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -47,7 +47,7 @@ const MyOrder = () => {
     const deleteOrder = (id) => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `https://thawing-cove-92314.herokuapp.com/order/${id}`
+            const url = `https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/order/${id}`
             fetch(url, {
                 method: 'DELETE',
                 headers: {
@@ -71,7 +71,7 @@ const MyOrder = () => {
             address: order.address,
             phone: order.phone
         }
-        fetch(`https://thawing-cove-92314.herokuapp.com/confirm`, {
+        fetch(`https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/confirm`, {
             method: 'POST',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
