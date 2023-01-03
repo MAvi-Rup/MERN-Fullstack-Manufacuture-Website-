@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Abstract Pattern Granite",
+    "desc": "Abstract Pattern Granite is a house decoration abstract lookog tiles. The design of this tiles is too beatiful too see. Its makes your floor and house more attacrtive.",
+    "price": 15,
+    "minimum": 3000,
+    "stock": 100000,
+    "img": "https://i.ibb.co/mtMH0Ym/abstract.jpg"
+  },
+  {
+    "name": "Black Marvelled Surface",
+    "desc": "Black Marvelled Surface is a house decoration abstract lookog tiles. The design of this tiles is too beatiful too see. Its makes your floor and house more attacrtive.",
+    "price": 25,
+    "minimum": 3000,
+    "stock": 200000,
+    "img": "https://i.ibb.co/4gWPccS/black.jpg"
+  },
+  {
+    "name": "Close Up Marble Textured Wall",
+    "desc": "Close Up Marble Textured Wall is a house decoration abstract lookog tiles. The design of this tiles is too beatiful too see. Its makes your floor and house more attacrtive.",
+    "price": 13,
+    "minimum": 3000,
+    "stock": 150000,
+    "img": "https://i.ibb.co/r5FdVRm/close.jpg"
+  }
+  
+]
+
+
+
+
+
