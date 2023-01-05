@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const AllOrders = () => {
     const [alloders, setOrders] = useState([])
     useEffect(() => {
-        fetch('https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/confirm',
+        fetch('http://35.163.32.74:5000/confirm',
             {
                 method: 'GET',
                 headers: {

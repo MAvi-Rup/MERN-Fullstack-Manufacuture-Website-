@@ -4,7 +4,7 @@ import DeleteTool from './DeleteTool';
 const ManageProducts = () => {
     const [tools, setTools] = useState([])
     useEffect(() => {
-        fetch('https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/tools')
+        fetch('http://35.163.32.74:5000/tools')
             .then(res => res.json())
             .then(data => setTools(data))
 

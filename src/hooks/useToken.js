@@ -6,7 +6,7 @@ const useToken = user =>{
         const email = user?.user?.email;
         const currentUser = {email: email};
         if(email){
-            fetch(`https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/user/${email}`, {
+            fetch(`http://35.163.32.74:5000/user/${email}`, {
                 method:'PUT',
                 headers: {
                     'content-type': 'application/json'

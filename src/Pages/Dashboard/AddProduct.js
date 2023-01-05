@@ -15,7 +15,7 @@ const AddProduct = (data,e) => {
             stock: data.stock,
             img: data.image
         }
-        fetch('https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/tools', {
+        fetch('http://35.163.32.74:5000/tools', {
             method: 'POST',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,

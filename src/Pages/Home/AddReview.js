@@ -15,7 +15,7 @@ const AddReview = () => {
             review:data.review,
             ratings:data.rating
         }
-        fetch('https://1a247be5b9024cc2975c4660c0c08e86.vfs.cloud9.us-east-1.amazonaws.com/review', {
+        fetch('http://35.163.32.74:5000/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
