@@ -38,7 +38,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/review' element={<Review></Review>}></Route>
-        <Route path="dashboard" element={<Dashboard />} >
+        <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
           <Route path="myorder" element={<MyOrder></MyOrder>}></Route>
           <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path="users" element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
